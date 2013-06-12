@@ -1,0 +1,10 @@
+<div ng-controller="BingoPlayCtrl">
+  <div id="word_preview">{{wordPreview()}}</div>
+  <div style="text-align:center">
+    <button ng-click="pickWord()">{{game.buttonMode}}</button>
+  </div>
+  <div id="picked_words" style="position:relative; min-height:200px;">
+    <img src="/img/bingo-128.png" style="position:absolute; top:5px; right:5px;"></img>
+    <h3 ng-repeat="word in game.picked">{{word}}</h3>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div ng-controller="BingoEditCtrl">
+  <form id="bingo_form">
+    <fieldset>
+      <legend>Bingo Card Basics</legend>
+      <label>Card Title <input type="text" ng-model="db.title" id="title" value=""></label>
+      <label>Word List (separated by commas)</label><textarea ng-model="db.words" cols="60" rows="8" name="words" id="words"></textarea>
+    </fieldset> 
+
+    <fieldset>
+      <legend>Free Space</legend>
+      <label>Free Space Text <input type="text" ng-model="db.freespace"></label>
+      <label>Free Space Placement
+        <select ng-model="db.freeSpacePlacement" ng-options="value for value in ['random','center']">
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Card Size</legend>
+      <p>A 5x5 bingo card is traditional, but you can try other sizes</p>
+      <label>Number of Squares Wide <input type="text" ng-model="db.width"></label>
+      <label>Number of Squares Tall <input type="text" ng-model="db.height"></label>
+    </fieldset>
+
+    
+    <fieldset>
+      <legend>Printing Options</legend>
+      <p>Select the <em>landscape</em> page layout when printing for best results</p>
+      <label>Number of cards to create <input type="text" ng-model="db.cards"></label>
+    </fieldset>
+  </form>
+
+  <div class="error" ng-show="errorMessage"><strong>Oh snap! </strong>{{errorMessage}}</div>
+</div>
+<!-- jquery controlled -->
+<div id="results"></div>

@@ -1,0 +1,8 @@
+{
+  "name": "krut_bingo",
+  "version": "0.1.0",
+  "devDependencies": {
+    "connect": "latest",
+    "grunt": "~0.4.1"
+  }
+}

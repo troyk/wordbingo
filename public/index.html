@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html ng-app="bingo">
+<head>
+<title>Bingo Card Generator</title>
+<style type="text/css">
+	label,input, select {
+		display:block;
+	}
+	input,select {
+		margin-bottom:.5em;
+	}
+	legend { font-weight: bold }
+	div.clear { clear:both; }
+	div.break { clear:both; page-break-after: always; }
+	table {
+		
+		border-collapse:collapse;
+		margin-bottom:1em;
+		margin-right:1em;
+		float:left;
+  }
+  table.odd {
+    margin-left:1em;
+    margin-right:0;
+  }
+	td, th {
+		border:1px solid black;
+		text-align:center;
+	}
+  th {
+    background-color:black;
+    -webkit-print-color-adjust:exact;
+		color:white;
+		height:50px;
+		font-family:Arial,Helvetica;
+		font-size:24px;
+	}
+	td {
+		background-color:white;
+		width:85px;
+		height:85px;
+	}
+	.freespace {
+		font-size:smaller;
+	}
+	#footer {
+		border-top:1px solid #ccc;
+		clear:both;
+	}
+  .error {
+    color: #b94a48;
+    background-color: #f2dede;
+    border: 1px solid #eed3d7;
+    padding:10px 8px;
+  }  
+  .notice {
+    color: #c09853;
+    background-color: #fcf8e3;
+    border: 1px solid #fbeed5;
+    padding:2px 4px;
+  }  
+  #word_preview {
+    text-align:center;
+    font-weight:bold;
+    font-size:32px;
+    margin-bottom:15px;
+
+  }
+
+  #picked_words { padding-right:250px; }
+  #picked_words h3 {
+    float:left;
+    background-color: #FFE8F0;
+    padding:5px 5px;
+    font-size:16px;
+    margin-right:5px; margin-bottom:5px;
+    font-weight:bold;
+    color: #333;
+    border: 1px solid #FFC7DB;
+  }
+
+</style>
+<style type="text/css" media="print">
+	h1, form, #footer, #menuButtons { display:none }
+</style>
+
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+<script src="/js/angular.min.js" type="text/javascript"></script>
+<script src="/js/app.js" type="text/javascript"></script>    
+
+</head>
+<body ng-controller="BingoAppCtrl" ng-keypress="broadcastKeyPress($event)">
+  <div id="menuButtons" style="position:relative">
+    <div ng-show="flashNotice" class="notice" style="position:absolute; top:0px; right:5px;">{{flashNotice}}</div>
+    <span ng-repeat="button in menuButtons">
+      <button ng-click="doMenuButton(button)">{{button}}</button>
+    </span>
+  </div>
+	
+	<ng-view></ng-view>
+
+  <div id="footer">
+  Questions? Comments? Contact troy @ blit . com
+  </div>
+
+</body>
+</html>
